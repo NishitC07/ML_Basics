@@ -22,7 +22,7 @@ class DigitClassifier(nn.Module):
             nn.Flatten(),
             nn.Linear(28*28, 128),   # Input: 784 → Hidden: 128
             nn.ReLU(),
-            nn.Linear(128, 10)       # Output: 10 classes
+            nn.Linear(128, 10) # Output: 10 classes
         )
 
     def forward(self, x):
@@ -55,8 +55,7 @@ with torch.no_grad():
     for images, labels in test_loader:
         outputs = model(images)
         _, predicted = torch.max(outputs, 1)
-        print(outputs)
-        break
+
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
 
